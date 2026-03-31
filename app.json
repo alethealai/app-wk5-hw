@@ -5,6 +5,20 @@
       "expo-router"
     ],
     "name": "app-wk5-hw",
-    "slug": "app-wk5-hw"
+    "slug": "app-wk5-hw",
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "07bc5c13-a43e-4ae4-8945-eb6d1c9c32c7"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/07bc5c13-a43e-4ae4-8945-eb6d1c9c32c7"
+    },
+    "android": {},
+    "ios": {}
   }
 }
