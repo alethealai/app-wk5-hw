@@ -1,13 +1,15 @@
-import { View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context'; // 務必引入此元件 [cite: 779, 824]
 import { usePhotoStore } from '../store/usePhotoStore';
 import { pickImage } from '../utils/photoHandler';
+import { Image } from 'expo-image';
 
 export default function HomeScreen() {
   const { photos, addPhoto } = usePhotoStore();
 
   const handleUpload = async () => {
     const uri = await pickImage();
+    console.log('Photos array:', photos)
     if (uri) addPhoto(uri);
   };
 
@@ -20,11 +22,20 @@ export default function HomeScreen() {
           data={photos}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
+            console.log('Rendering item:', item),
             <Image 
-              source={{ uri: item.uri }} 
-              className="w-full h-48 rounded-lg mb-4" 
-              resizeMode="cover"
-            />
+  source={{ uri: item.uri }} 
+  // 💡 放棄 className，直接寫原生 style。
+  // 如果這樣照片出來了，就證實是 NativeWind 版本不支援你的 Image 元件。
+  style={{ 
+    width: '100%', 
+    height: 200, 
+    borderRadius: 12, 
+    marginBottom: 16,
+    backgroundColor: '#e5e7eb' 
+  }} 
+  resizeMode="cover"
+/>
           )}
           contentContainerStyle={{ paddingBottom: 100 }} 
         />
