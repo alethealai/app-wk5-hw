@@ -6,6 +6,7 @@
     ],
     "name": "app-wk5-hw",
     "slug": "app-wk5-hw",
+    "userInterfaceStyle": "automatic",
     "extra": {
       "router": {},
       "eas": {
@@ -20,5 +21,6 @@
     },
     "android": {},
     "ios": {}
+    
   }
 }
